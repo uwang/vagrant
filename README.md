@@ -2,15 +2,32 @@
 
 Vagrant CentOS7 开发环境
 
-[PuPHPet —— A simple GUI to set up virtual machines for Web development.](https://puphpet.com/)
+>Windows 一定要开启 VT-x/AMD-V 硬件加速。开机进入BIOS选项 ，依次选Config->CPU->Intel Virtualization Technology，里面有个Intel VT-d Feature ，改成Enabled ，保存退出，关机，然后启动机器。
 
->Windows 一定要开启 VT-x/AMD-V 硬件加速
+相关概念：
 
->开机进入BIOS选项 ，依次选Config->CPU->Intel Virtualization Technology，里面有个Intel VT-d Feature ，改成Enabled ，保存退出，关机，然后启动机器。
+- provision - 字面意思是准备，实现的功能是在原生镜像的基础上，进行一些附加的操作，以改变虚拟机的环境，比如安装应用，发布程序等。
+    
+- Host - 安装 VirtualBox 和 Vagrant 的物理机，通常是系统为 Windows、MacOS。
+- Guest - 被 Vagrant 维护的虚拟机。
+
+### [Basic Usage of Provisioners →](https://www.vagrantup.com/docs/provisioning/basic_usage.html)
+
+provision 的字面意思是准备。
+
+通常情况下Box只做最基本的设置，而不是设置好所有的环境，因此Vagrant通常使用Chef或者- [PuPHPet](https://puphpet.com/)来做进一步的环境搭建。
+那么Chef或者Puppet称为provisioning，而该命令就是指定开启相应的provisioning。
+
+provisioner 在三种情况下运行：
+
+- 第一次 `vagrant up`
+- `vagrant provision`
+- `vagrant reload --provision`
 
 ### 开始
 
 >Minimum required Vagrant version is 2.0
+
 >Minimum suggested Virtualbox version is 5.0
 
 在满足上述基本条件的前提下，尽量选用最新的版本。
@@ -71,18 +88,13 @@ NFS is highly recommended for `MacOS` and `Linux`! Make sure to install the vagr
 vagrant plugin install vagrant-bindfs
 ```
 
->以上命令实在 Host 上执行，简单说就是 MacOS 下。而 Vagrant 的虚拟机称作 Guset。
+>以上命令实在 Host 上执行，简单说就是 MacOS、Windows 下。而 Vagrant 的虚拟机称作 Guset。
 
-## Linux 基本配置
+## 系统配置
 
-## Nginx 基本配置
+```shell
+sudo yum install git -y
+git clone https://github.com/haobingwang/scripts.git
+```
 
-## MariaDB 基本配置
-
-## PHP 基本配置
-
-## Node.js 基本配置
-
-## Python 基本配置
-
-## Java 基本配置
+[CentOS7 常用脚本](https://github.com/haobingwang/scripts/tree/master/centos)
