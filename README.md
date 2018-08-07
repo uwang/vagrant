@@ -88,7 +88,15 @@ NFS is highly recommended for `MacOS` and `Linux`! Make sure to install the vagr
 vagrant plugin install vagrant-bindfs
 ```
 
+网络有时不好会安装是被，可以多试几次，正常情况下：
+
+>Installing the 'vagrant-bindfs' plugin. This can take a few minutes...
+Fetching: vagrant-bindfs-1.1.0.gem (100%)
+Installed the plugin 'vagrant-bindfs (1.1.0)'!
+
 >以上命令实在 Host 上执行，简单说就是 MacOS、Windows 下。而 Vagrant 的虚拟机称作 Guset。
+
+Windows 下会忽略 NFS 类型的同步方式，建议使用 [RSync](https://www.vagrantup.com/docs/synced-folders/rsync.html)
 
 ## 系统配置
 
