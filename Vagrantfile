@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
   # 新增共享目录并制定同步方式
-  config.vm.synced_folder "../code", "/home/vagrant/code", type: "nfs"
+  config.vm.synced_folder "~/code", "/home/vagrant/code", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.

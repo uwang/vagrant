@@ -98,6 +98,28 @@ Installed the plugin 'vagrant-bindfs (1.1.0)'!
 
 Windows 下会忽略 NFS 类型的同步方式，建议使用 [RSync](https://www.vagrantup.com/docs/synced-folders/rsync.html)
 
+#### 默认类型
+
+```
+drwxr-xr-x.   4 vagrant vagrant   136 3月  20 01:28 default
+drwxr-xr-x.  29 vagrant vagrant   986 3月  20 02:16 drupal
+drwxr-xr-x.  24 vagrant vagrant   816 3月  20 04:13 laravel
+```
+
+Nginx 和 PHP-FPM 的运行身份都应该改为 vagrant。否则 Nignx 恒为 404，PHP-FPM 恒为 403。
+
+#### Mac/Linux 上使用 nfs
+
+```
+drwxr-xr-x.   4 501 games   136 3月  20 01:28 default
+drwxr-xr-x.  29 501 games   986 3月  20 02:16 drupal
+drwxr-xr-x.  24 501 games   816 3月  20 04:13 laravel
+```
+
+>用户名 501 ，用户组 games。这是因为 NFS 表示的是 Network Files Share，网络文件共享，这就相当于，您自己的电脑变成了一台共享文件的服务器，与运行的虚拟机共享一些文件，所以，你看到的文件或目录的拥有者与用户组，应该属于你的本机系统。在虚拟机上运行的服务，比如 PHP-FPM、NGINX 对共享目录不存在权限问题。
+
+Ubuntu 可能符合上述原则。但是，实测 CentOS 依然需要将 Nignx 和 PHP-FPM 的运行用户改为 vagrant！
+
 ## 系统配置
 
 ```shell
