@@ -35,6 +35,15 @@ provisioner 在三种情况下运行：
 首先，[下载安装 VirtualBox](https://www.virtualbox.org/)
 然后，[下载安装 Vagrant](https://www.vagrantup.com/)
 
+首先安装插件：
+
+```shell
+# Windows 下使用 Sublime 打开目录 C:\HashiCorp\Vagrant\embedded\gems
+# MacOS   下使用 Sublime 打开目录
+# 全局替换文件夹中的 https://rubygems.org 为 https://gems.ruby-china.com
+vagrant plugin install vagrant-vbguest
+```
+
 然后初始化：
 
 ```shell
