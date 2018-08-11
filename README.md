@@ -137,3 +137,7 @@ git clone https://github.com/haobingwang/scripts.git
 ```
 
 [CentOS7 常用脚本](https://github.com/haobingwang/scripts/tree/master/centos)
+
+## 连接数据库
+
+Mac 下 Datagrip 使用 SSH tunnel ，密钥 `~/vagrant/.vagrant/machines/default/virtualbox/private_key`
