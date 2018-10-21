@@ -141,3 +141,6 @@ git clone https://github.com/haobingwang/scripts.git
 ## 连接数据库
 
 Mac 下 Datagrip 使用 SSH tunnel ，密钥 `~/vagrant/.vagrant/machines/default/virtualbox/private_key`
+
+- 用户：root
+- 密码：secret
